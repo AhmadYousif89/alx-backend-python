@@ -1,13 +1,11 @@
-# tests/__init__.py
 import importlib.util
 import os
 
 def import_module(relative_path):
     # Get the current directory of the script being run.
     current_directory = os.path.dirname(os.path.realpath(__file__))
-
     # Get the full, absolute file paths for the module.
-    module_file_path = os.path.join(current_directory, relative_path)
+    module_file_path = os.path.join(current_directory, relative_path + '.py')
     # Derive the module name from the file name.
     module_name = os.path.splitext(os.path.basename(module_file_path))[0]
     # Use the util functions to import the module.

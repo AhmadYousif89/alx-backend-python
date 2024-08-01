@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 Type-annotated function add that takes 
-(a) => float and (b) => float as arguments
-and returns their sum as a float.
+(a: float, b: float) as arguments and returns their sum as -> float.
 """
 
 def add(a: float, b: float) -> float:

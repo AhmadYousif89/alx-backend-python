@@ -1,5 +1,5 @@
-import importlib.util
 import os
+import importlib.util
 
 
 def import_module(relative_path):

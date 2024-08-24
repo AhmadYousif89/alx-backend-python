@@ -4,6 +4,7 @@ Unit tests for the utils module.
 """
 
 import unittest
+from unittest.mock import patch, Mock
 from parameterized import parameterized
 from utils import (
     access_nested_map,
@@ -37,3 +38,22 @@ class TestAccessNestedMap(unittest.TestCase):
         """Test access_nested_map function with exception"""
         with self.assertRaises(expected_exception):
             access_nested_map(nested_map, path)
+
+
+class TestGetJson(unittest.TestCase):
+    """
+    Test get_json function.
+    """
+
+    @parameterized.expand(
+        [
+            ("http://example.com", {"payload": True}),
+            ("http://holberton.io", {"payload": False}),
+        ]
+    )
+    def test_get_json(self, url, payload):
+        """Test get_json function"""
+        mock = Mock()
+        mock.json.return_value = payload
+        with patch("requests.get", return_value=mock):
+            self.assertEqual(get_json(url), payload)

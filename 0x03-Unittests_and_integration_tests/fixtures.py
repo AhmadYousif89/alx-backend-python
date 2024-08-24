@@ -2,7 +2,9 @@
 
 TEST_PAYLOAD = [
     (
+        # "org_payload"
         {"repos_url": "https://api.github.com/orgs/google/repos"},
+        # "repos_payload"
         [
             {
                 "id": 7697149,
@@ -908,6 +910,7 @@ TEST_PAYLOAD = [
                 "permissions": {"admin": False, "push": False, "pull": True},
             },
         ],
+        # "expected_repos"
         [
             'episodes.dart',
             'cpp-netlib',
@@ -919,6 +922,7 @@ TEST_PAYLOAD = [
             'traceur-compiler',
             'firmata.py',
         ],
+        # "apache2_repos"
         ['dagger', 'kratu', 'traceur-compiler', 'firmata.py'],
     )
 ]
